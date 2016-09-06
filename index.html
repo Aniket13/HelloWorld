@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Image Zoomer</title>
+	<style type="text/css">
+	.orgimg
+	{
+		width:200px;
+		float: left;
+		overflow: hidden;
+
+
+	}
+	.imagewrapper:hover .zoomimg
+	{
+		display: block;
+		
+
+	}
+	.imagewrapper:hover .orgimg img
+	{
+	-ms-transform: scale(2,3); /* IE 9 */
+    -webkit-transform: scale(2,3); /* Safari */
+    transform: scale(2,3); /* Standard syntax */
+    transition: all 1s;
+		
+
+	}
+	.orgimg img
+	{
+		width:200px;
+
+	}
+	.zoomimg
+	{
+		position: relative;
+		left:0;
+		top: 0;
+		display: none;
+		overflow:hidden;
+		width:323px;
+		height:757px;
+	}
+	.imagewrapper
+	{
+		position: relative;
+		transition: all 1s;
+	}
+	.bigImg{position: absolute;
+		left: 0; top: 0;
+	}
+	</style>
+	<script>
+		function zoomImage(event){
+			var x = event.clientX;
+			var y = event.clientY;
+			document.getElementById('bigImg').style.left=-x+50+'px';
+			document.getElementById('bigImg').style.top=-y+50+'px';
+		}
+
+	</script>
+</head>
+<body>
+<div class="imagewrapper">
+
+	<div class="orgimg" >
+		<img src="7.png" onmousemove="zoomImage(event)"/>
+	</div>
+	<div class="zoomimg">
+		<img src="7.png" class="bigImg" id="bigImg" />
+	</div>
+</div>
+</body>
+</html>
